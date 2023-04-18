@@ -1,2 +1,3 @@
-import apiCall from "./api.js";
+import apiCall from "./propiedad/api.js";
+
 apiCall();
