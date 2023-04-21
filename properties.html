@@ -87,43 +87,38 @@
 						<div class="row g-2">
 							<div class="col-sm-6">
 								<select class="form-select" id="typeOperation">
-									<option selected>Tipo de Operación</option>
-									<option value="1">Tipo de Operación 1</option>
-									<option value="2">Tipo de Operación 2</option>
-									<option value="3">Tipo de Operación 3</option>
+									<option value="" selected>Tipo de Operación</option>
+									<option value="venta" >Venta</option>
+                					<option value="arriendo" >Arriendo</option>
+                					<option value="arriendo_temporal" >Arriendo Temporal</option>
 								</select>
 							</div>
 
 							<div class="col-sm-6">
 								<select class="form-select" id="region">
-									<option selected>Región</option>
-									<option value="1">Región 1</option>
-									<option value="2">Región 2</option>
-									<option value="3">Región 3</option>
+									<option value="0" selected>Región</option>
 								</select>
 							</div>
 
 							<div class="col-sm-6">
 								<select class="form-select" id="typeOfProperty">
-									<option selected>Tipo de Inmueble</option>
-									<option value="1">Tipo de Inmueble 1</option>
-									<option value="2">Tipo de Inmueble 2</option>
-									<option value="3">Tipo de Inmueble 3</option>
+									<option value="" selected>Tipo de Inmueble</option>
+									<option value="casa">Casa</option>
+									<option value="bodega">Bodega</option>
+									<option value="departamento">Departamento</option>
+									<option value="estacionamientos">Estacionamiento</option>
 								</select>
 							</div>
 
 							<div class="col-sm-6">
 								<select class="form-select" id="commune">
-									<option selected>Comuna</option>
-									<option value="1">Comuna 1</option>
-									<option value="2">Comuna 2</option>
-									<option value="3">Comuna 3</option>
+									<option value="" selected>Comuna</option>
+									
 								</select>
 							</div>
 
 							<div class="col-sm-2">
 								<label class="mt-2"> Precio </label>
-
 								<div class="form-check mt-3 mx-2">
 									<input
 										class="form-check-input"
@@ -172,29 +167,32 @@
 
 							<div class="col-sm-6">
 								<select class="form-select">
-									<option selected>Estacionamientos</option>
+									<option value="" selected>Estacionamientos</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
-									<option value="2">3</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
 								</select>
 							</div>
 
 							<div class="col-md-6">
 								<div class="py-1">
 									<select class="form-select" id="bedrooms">
-										<option selected>Habitaciones</option>
+										<option value="" selected>Habitaciones</option>
 										<option value="1">1</option>
 										<option value="2">2</option>
-										<option value="2">3</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
 									</select>
 								</div>
 
 								<div class="py-1">
 									<select class="form-select" id="bathrooms">
-										<option selected>Baños</option>
+										<option value="" selected>Baños</option>
 										<option value="1">1</option>
 										<option value="2">2</option>
-										<option value="2">3</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
 									</select>
 								</div>
 							</div>
@@ -270,29 +268,35 @@
 							<div
 								class="d-flex align-items-center justify-content-end preview-layout"
 							>
-								<button type="button" class="btn btn-light btn-list text-dark">
+							<ul class="nav nav-pills " id="pills-tab" role="tablist">
+								<li class="nav-item" role="presentation">
+								  <button type="button" class="btn btn-light btn-list text-dark active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
 									<span>
 										<i class="bi bi-list-ul"></i>
 									</span>
 								</button>
-
-								<button type="button" class="btn btn-light btn-grid">
-									<span>
-										<i class="bi bi-grid-fill"></i>
-									</span>
-								</button>
-
-								<button type="button" class="btn btn-light btn-map">
-									<span>
-										<i class="bi bi-pin-map"></i>
-									</span>
-								</button>
+								</li>
+								<li class="nav-item" role="presentation">
+									<button type="button" class="btn btn-light btn-grid" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
+										<span>
+											<i class="bi bi-grid-fill"></i>
+										</span>
+									</button>
+								</li>
+								<li class="nav-item" role="presentation">
+									<button type="button" class="btn btn-light btn-map" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" >
+										<span>
+											<i class="bi bi-pin-map"></i>
+										</span>
+									</button>
+								</li>
+							</ul>
 							</div>
 						</div>
 
 						<div class="setting-props-layout__filter">
-							<div>
-								<p id="totalItems">propiedades encontradas</p>
+							<div id="totalItems">
+								<p>propiedades encontradas</p>
 							</div>
 							<div class="d-flex align-items-center">
 								<p class="text-nowrap mt-3 p-3">Ordenar por:</p>
@@ -302,313 +306,130 @@
 								</select>
 							</div>
 						</div>
-
-						<div class="row g-3" id="container-cards">
-							<!-- item 1 -->
-							<div class="col-sm-4 property">
-								<div class="property-item rounded overflow-hidden">
-									<div class="position-relative overflow-hidden">
-										<a href="property-details.html"
-											><img
-												class="img-fluid"
-												src="assets/img/properties/property-1.jpg"
-												alt=""
-										/></a>
-										<div
-											class="bg-dark rounded text-white position-absolute end-0 top-0 m-4 py-1 px-3"
-										>
-											Venta
+						<div class="tab-content" id="pills-tabContent">
+							<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">  
+								<div class="row g-3" id="container-cards">
+									
+									<!-- <div class="col-sm-12 col-lg-12 property">
+										<div class="property-item-list rounded">
+												<div class="row">
+													<div class="col-lg-6">
+														<div class="position-relative ">
+															<a href="property-details.html"
+															><img
+																class="img-fluid img-property"
+																src="assets/img/properties/property-1.jpg"
+																alt=""
+														/></a>
+														<div
+															class="bg-dark rounded text-white position-absolute end-0 top-0 m-4 py-1 px-3"
+														>
+															Venta
+														</div>
+														</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="item-info text-center">
+															<div class=" mt-3 p-4 pb-0 card-props">
+																<a
+																	class="d-block h4 mb-4 text-uppercase text-center"
+																	href=""
+																	>Lujosa Oficina en Venta La Dehesa</a
+																>
+														
+															</div>
+															<div class=" p-4 pb-0">
+																<p class="text-center">
+																	<i class="bi bi-pin-map"></i> Lo Barnechea, LO BARNECHEA
+																</p>
+															</div>
+														
+															<div class="mt-5 d-flex">
+																<h4 class="flex-fill text-center py-2">
+																	<b>UF 8.843</b>
+																</h4>
+																<h4 class="flex-fill text-center py-2">
+																	<b>CLP 302.825.086</b>
+																</h4>
+															</div>
+															<div class="mt-3 d-flex w-100 border-2 bg-light">
+																<span class="flex-fill text-center p-2">
+																	<i class="bi bi-building"></i> 100 m<sup>2</sup>
+																</span>
+																<span class="flex-fill text-center py-2">
+																	<i class="fa-sharp fa-solid fa-bed"></i> 5
+																</span>
+																<span class="flex-fill text-center p-2">
+																	<i class="fa-sharp fa-solid fa-toilet"></i> 4
+																</span>
+																
+															</div>
+														</div>
+													</div>
+												</div>
+									
 										</div>
-									</div>
-									<div class="item-info">
-										<div class="p-4 pb-0 card-props">
-											<a
-												class="d-block h4 mb-4 text-uppercase text-center"
-												href=""
-												>Lujosa Oficina en Venta La Dehesa</a
-											>
-											<p class="text-center">
-												<i class="bi bi-pin-map"></i> Lo Barnechea, LO BARNECHEA
-											</p>
+										
+									</div> -->
+								</div>
+								
+							</div>
+							<div class="tab-pane fade " id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+								<div class="row g-3" id="container-propiedad-list">
+									<!-- item 1 -->
+									<!-- <div class="col-sm-4 property">
+										<div class="property-item-card rounded ">
+											<div class="position-relative">
+												<a href="property-details.html"
+													><img
+														class="img-fluid"
+														src="assets/img/properties/property-1.jpg"
+														alt=""
+												/></a>
+												<div
+													class="bg-dark rounded text-white position-absolute end-0 top-0 m-4 py-1 px-3"
+												>
+													Venta
+												</div>
+											</div>
+											<div class="item-info">
+												<div class="p-4 pb-0 card-props">
+													<a
+														class="d-block h4 mb-4 text-uppercase text-center"
+														href=""
+														>Lujosa Oficina en Venta La Dehesa</a
+													>
+												</div>
+												<div class="p-4 pb-0 card-props">
+													<p class="text-center">
+														<i class="bi bi-pin-map"></i> Lo Barnechea, LO BARNECHEA
+													</p>
+												</div>
+												<div class="d-flex">
+													<h4 class="flex-fill text-center py-2">
+														<b>UF 8.843</b>
+													</h4>
+													<h4 class="flex-fill text-center py-2">
+														<b>CLP 302.825.086</b>
+													</h4>
+												</div>
+												<div class="d-flex w-100 border-2 bg-light">
+													<span class="flex-fill text-center p-2">
+														<i class="bi bi-building"></i> 100 m<sup>2</sup>
+													</span>
+													<span class="flex-fill text-center py-2">
+														<i class="fa-sharp fa-solid fa-bed"></i> 5
+													</span>
+													<span class="flex-fill text-center p-2">
+														<i class="fa-sharp fa-solid fa-toilet"></i> 4
+													</span>
+												</div>
+											</div>
 										</div>
-										<div class="d-flex">
-											<h4 class="flex-fill text-center py-2">
-												<b>UF 8.843</b>
-											</h4>
-											<h4 class="flex-fill text-center py-2">
-												<b>CLP 302.825.086</b>
-											</h4>
-										</div>
-										<div class="d-flex w-100 border-2 bg-light">
-											<span class="flex-fill text-center p-2">
-												<i class="bi bi-building"></i> 100 m<sup>2</sup>
-											</span>
-											<span class="flex-fill text-center py-2">
-												<i class="fa-sharp fa-solid fa-bed"></i> 5
-											</span>
-											<span class="flex-fill text-center p-2">
-												<i class="fa-sharp fa-solid fa-toilet"></i> 4
-											</span>
-										</div>
-									</div>
+									</div> -->
+									<!-- Fin item 1 -->
 								</div>
 							</div>
-							<!-- Fin item 1 -->
-
-							<!-- item 2 -->
-							<div class="col-sm-4 property">
-								<div class="property-item rounded overflow-hidden">
-									<div class="position-relative overflow-hidden">
-										<a href="property-details.html"
-											><img
-												class="img-fluid"
-												src="assets/img/properties/property-1.jpg"
-												alt=""
-										/></a>
-										<div
-											class="bg-dark rounded text-white position-absolute end-0 top-0 m-4 py-1 px-3"
-										>
-											Venta
-										</div>
-									</div>
-									<div class="item-info">
-										<div class="p-4 pb-0 card-props">
-											<a
-												class="d-block h4 mb-4 text-uppercase text-center"
-												href=""
-												>Lujosa Oficina en Venta La Dehesa</a
-											>
-											<p class="text-center">
-												<i class="bi bi-pin-map"></i> Lo Barnechea, LO BARNECHEA
-											</p>
-										</div>
-										<div class="d-flex">
-											<h4 class="flex-fill text-center py-2">
-												<b>UF 8.843</b>
-											</h4>
-											<h4 class="flex-fill text-center py-2">
-												<b>CLP 302.825.086</b>
-											</h4>
-										</div>
-										<div class="d-flex w-100 border-2 bg-light">
-											<span class="flex-fill text-center p-2">
-												<i class="bi bi-building"></i> 100 m<sup>2</sup>
-											</span>
-											<span class="flex-fill text-center py-2">
-												<i class="fa-sharp fa-solid fa-bed"></i> 5
-											</span>
-											<span class="flex-fill text-center p-2">
-												<i class="fa-sharp fa-solid fa-toilet"></i> 4
-											</span>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- Fin item 2 -->
-
-							<!-- item 3 -->
-							<div class="col-sm-4 property">
-								<div class="property-item rounded overflow-hidden">
-									<div class="position-relative overflow-hidden">
-										<a href="property-details.html"
-											><img
-												class="img-fluid"
-												src="assets/img/properties/property-1.jpg"
-												alt=""
-										/></a>
-										<div
-											class="bg-dark rounded text-white position-absolute end-0 top-0 m-4 py-1 px-3"
-										>
-											Venta
-										</div>
-									</div>
-									<div class="item-info">
-										<div class="p-4 pb-0 card-props">
-											<a
-												class="d-block h4 mb-4 text-uppercase text-center"
-												href=""
-												>Lujosa Oficina en Venta La Dehesa</a
-											>
-											<p class="text-center">
-												<i class="bi bi-pin-map"></i> Lo Barnechea, LO BARNECHEA
-											</p>
-										</div>
-										<div class="d-flex">
-											<h4 class="flex-fill text-center py-2">
-												<b>UF 8.843</b>
-											</h4>
-											<h4 class="flex-fill text-center py-2">
-												<b>CLP 302.825.086</b>
-											</h4>
-										</div>
-										<div class="d-flex w-100 border-2 bg-light">
-											<span class="flex-fill text-center p-2">
-												<i class="bi bi-building"></i> 100 m<sup>2</sup>
-											</span>
-											<span class="flex-fill text-center py-2">
-												<i class="fa-sharp fa-solid fa-bed"></i> 5
-											</span>
-											<span class="flex-fill text-center p-2">
-												<i class="fa-sharp fa-solid fa-toilet"></i> 4
-											</span>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- Fin item 3 -->
-
-							<!-- item 4 -->
-							<div class="col-sm-4 property">
-								<div class="property-item rounded overflow-hidden">
-									<div class="position-relative overflow-hidden">
-										<a href="property-details.html"
-											><img
-												class="img-fluid"
-												src="assets/img/properties/property-1.jpg"
-												alt=""
-										/></a>
-										<div
-											class="bg-dark rounded text-white position-absolute end-0 top-0 m-4 py-1 px-3"
-										>
-											Venta
-										</div>
-									</div>
-									<div class="item-info">
-										<div class="p-4 pb-0 card-props">
-											<a
-												class="d-block h4 mb-4 text-uppercase text-center"
-												href=""
-												>Lujosa Oficina en Venta La Dehesa</a
-											>
-											<p class="text-center">
-												<i class="bi bi-pin-map"></i> Lo Barnechea, LO BARNECHEA
-											</p>
-										</div>
-										<div class="d-flex">
-											<h4 class="flex-fill text-center py-2">
-												<b>UF 8.843</b>
-											</h4>
-											<h4 class="flex-fill text-center py-2">
-												<b>CLP 302.825.086</b>
-											</h4>
-										</div>
-										<div class="d-flex w-100 border-2 bg-light">
-											<span class="flex-fill text-center p-2">
-												<i class="bi bi-building"></i> 100 m<sup>2</sup>
-											</span>
-											<span class="flex-fill text-center py-2">
-												<i class="fa-sharp fa-solid fa-bed"></i> 5
-											</span>
-											<span class="flex-fill text-center p-2">
-												<i class="fa-sharp fa-solid fa-toilet"></i> 4
-											</span>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- Fin item 4 -->
-
-							<!-- item 5 -->
-							<div class="col-sm-4 property">
-								<div class="property-item rounded overflow-hidden">
-									<div class="position-relative overflow-hidden">
-										<a href="property-details.html"
-											><img
-												class="img-fluid"
-												src="assets/img/properties/property-1.jpg"
-												alt=""
-										/></a>
-										<div
-											class="bg-dark rounded text-white position-absolute end-0 top-0 m-4 py-1 px-3"
-										>
-											Venta
-										</div>
-									</div>
-									<div class="item-info">
-										<div class="p-4 pb-0 card-props">
-											<a
-												class="d-block h4 mb-4 text-uppercase text-center"
-												href=""
-												>Lujosa Oficina en Venta La Dehesa</a
-											>
-											<p class="text-center">
-												<i class="bi bi-pin-map"></i> Lo Barnechea, LO BARNECHEA
-											</p>
-										</div>
-										<div class="d-flex">
-											<h4 class="flex-fill text-center py-2">
-												<b>UF 8.843</b>
-											</h4>
-											<h4 class="flex-fill text-center py-2">
-												<b>CLP 302.825.086</b>
-											</h4>
-										</div>
-										<div class="d-flex w-100 border-2 bg-light">
-											<span class="flex-fill text-center p-2">
-												<i class="bi bi-building"></i> 100 m<sup>2</sup>
-											</span>
-											<span class="flex-fill text-center py-2">
-												<i class="fa-sharp fa-solid fa-bed"></i> 5
-											</span>
-											<span class="flex-fill text-center p-2">
-												<i class="fa-sharp fa-solid fa-toilet"></i> 4
-											</span>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- Fin item 5 -->
-
-							<!-- item 6 -->
-							<div class="col-sm-4 property">
-								<div class="property-item rounded overflow-hidden">
-									<div class="position-relative overflow-hidden">
-										<a href="property-details.html"
-											><img
-												class="img-fluid"
-												src="assets/img/properties/property-1.jpg"
-												alt=""
-										/></a>
-										<div
-											class="bg-dark rounded text-white position-absolute end-0 top-0 m-4 py-1 px-3"
-										>
-											Venta
-										</div>
-									</div>
-									<div class="item-info">
-										<div class="p-4 pb-0 card-props">
-											<a
-												class="d-block h4 mb-4 text-uppercase text-center"
-												href=""
-												>Lujosa Oficina en Venta La Dehesa</a
-											>
-											<p class="text-center">
-												<i class="bi bi-pin-map"></i> Lo Barnechea, LO BARNECHEA
-											</p>
-										</div>
-										<div class="d-flex">
-											<h4 class="flex-fill text-center py-2">
-												<b>UF 8.843</b>
-											</h4>
-											<h4 class="flex-fill text-center py-2">
-												<b>CLP 302.825.086</b>
-											</h4>
-										</div>
-										<div class="d-flex w-100 border-2 bg-light">
-											<span class="flex-fill text-center p-2">
-												<i class="bi bi-building"></i> 100 m<sup>2</sup>
-											</span>
-											<span class="flex-fill text-center py-2">
-												<i class="fa-sharp fa-solid fa-bed"></i> 5
-											</span>
-											<span class="flex-fill text-center p-2">
-												<i class="fa-sharp fa-solid fa-toilet"></i> 4
-											</span>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- Fin item 6 -->
 						</div>
 
 						<div id="pagination" class="bg-light rounded my-3">
@@ -790,6 +611,17 @@
 		<script src="assets/js/owlCarousel.js"></script>
 		<script src="assets/js/viewProperties.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+		<script type="module" src="js/index.js"></script>
+		<script type="module" src="js/mapProp.js"></script>
+
+		<script type="module" src="js/utils/getExchangeRate.js"></script>
+
+		<script type="module" src="js/utils/filterOnSubmit.js"></script>
+		<script type="module" src="js/utils/filterOnSubmitIndex.js"></script>
+    
+		<script type="module" src="js/utils/getSelects.js"></script>
+
 	
 	</body>
 </html>

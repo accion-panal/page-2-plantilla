@@ -84,43 +84,39 @@
 						<div class="row g-2">
 							<div class="col-sm-6">
 								<select class="form-select" id="typeOperation">
-									<option selected>Tipo de Operación</option>
-									<option value="1">Tipo de Operación 1</option>
-									<option value="2">Tipo de Operación 2</option>
-									<option value="3">Tipo de Operación 3</option>
+									<option value="" selected>Tipo de Operación</option>
+									<option value="venta" >Venta</option>
+									<option value="arriendo" >Arriendo</option>
+									<option value="arriendo_temporal" >Arriendo Temporal</option>
 								</select>
 							</div>
 
 							<div class="col-sm-6">
 								<select class="form-select" id="region">
-									<option selected>Región</option>
-									<option value="1">Región 1</option>
-									<option value="2">Región 2</option>
-									<option value="3">Región 3</option>
+									<option value="0" selected>Región</option>
+									
 								</select>
 							</div>
 
 							<div class="col-sm-6">
 								<select class="form-select" id="typeOfProperty">
-									<option selected>Tipo de Inmueble</option>
-									<option value="1">Tipo de Inmueble 1</option>
-									<option value="2">Tipo de Inmueble 2</option>
-									<option value="3">Tipo de Inmueble 3</option>
+									<option value="" selected>Tipo de Inmueble</option>
+									<option value="casa">Casa</option>
+									<option value="bodega">Bodega</option>
+									<option value="departamento">Departamento</option>
+									<option value="estacionamientos">Estacionamiento</option>
 								</select>
 							</div>
 
 							<div class="col-sm-6">
 								<select class="form-select" id="commune">
-									<option selected>Comuna</option>
-									<option value="1">Comuna 1</option>
-									<option value="2">Comuna 2</option>
-									<option value="3">Comuna 3</option>
+									<option value="" selected>Comuna</option>
+								
 								</select>
 							</div>
 
 							<div class="col-sm-2">
 								<label class="mt-2"> Precio </label>
-
 								<div class="form-check mt-3 mx-2">
 									<input
 										class="form-check-input"
@@ -169,29 +165,34 @@
 
 							<div class="col-sm-6">
 								<select class="form-select">
-									<option selected>Estacionamientos</option>
+									<option value="" selected>Estacionamientos</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
-									<option value="2">3</option>
+									<option value="3">3</option>
+									<option value="4">3</option>
+
 								</select>
 							</div>
 
 							<div class="col-md-6">
 								<div class="py-1">
 									<select class="form-select">
-										<option selected>Habitaciones</option>
+										<option value="" selected>Habitaciones</option>
 										<option value="1">1</option>
 										<option value="2">2</option>
-										<option value="2">3</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
 									</select>
 								</div>
 
 								<div class="py-1">
 									<select class="form-select" id="bathrooms">
-										<option selected>Baños</option>
+										<option value="" selected>Baños</option>
 										<option value="1">1</option>
 										<option value="2">2</option>
-										<option value="2">3</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+
 									</select>
 								</div>
 							</div>
@@ -261,13 +262,10 @@
 				<div class="section-header">
 					<h2>Propiedades destacadas</h2>
 				</div>
-				<div
-					class="owl-carousel properties-carousel wow fadeInUp"
-					data-wow-delay="0.1s"
-				>
+				<div class="owl-carousel properties-carousel wow fadeInUp" data-wow-delay="0.1s" style="height: 100%;">
 					<!-- Start Item 1 -->
-					<div class="property-item overflow-hidden">
-						<div class="position-relative overflow-hidden">
+					<div class="property-item overflow-hidden" id="container-prop-destacada" style="height: 300px;">
+						<!-- <div class="position-relative overflow-hidden">
 							<a href="property-details.html"
 								><img
 									class="img-fluid"
@@ -303,135 +301,10 @@
 									<i class="fa-sharp fa-solid fa-toilet"></i> 4
 								</span>
 							</div>
-						</div>
+						</div> -->
 					</div>
-					<!-- Start Item 1 -->
+					<!-- End Item 1 -->
 
-					<!-- Start Item 2 -->
-					<div class="property-item overflow-hidden">
-						<div class="position-relative overflow-hidden">
-							<a href="property-details.html"
-								><img
-									class="img-fluid"
-									src="assets/img/properties/property-1.jpg"
-									alt=""
-							/></a>
-						</div>
-						<div class="p-4 pb-0 card-props">
-							<a class="d-block h6 mb-2 text-uppercase text-center" href=""
-								>Lujosa Oficina en Venta La Dehesa</a
-							>
-
-							<div class="d-flex py-2">
-								<small class="flex-fill text-center p-2"> UF 8.843</small>
-								<small class="flex-fill text-center py-2">|</small>
-								<small class="flex-fill text-center p-2">
-									CLP 302.825.086</small
-								>
-							</div>
-
-							<p class="text-center">
-								<i class="bi bi-pin-map"></i> Lo Barnechea, LO BARNECHEA
-							</p>
-
-							<div class="d-flex w-100">
-								<span class="flex-fill text-center p-2">
-									<i class="bi bi-building"></i> 100 m<sup>2</sup>
-								</span>
-								<span class="flex-fill text-center py-2">
-									<i class="fa-sharp fa-solid fa-bed"></i> 5
-								</span>
-								<span class="flex-fill text-center p-2">
-									<i class="fa-sharp fa-solid fa-toilet"></i> 4
-								</span>
-							</div>
-						</div>
-					</div>
-					<!-- Start Item 2 -->
-
-					<!-- Start Item 3 -->
-					<div class="property-item overflow-hidden">
-						<div class="position-relative overflow-hidden">
-							<a href="property-details.html"
-								><img
-									class="img-fluid"
-									src="assets/img/properties/property-3.jpg"
-									alt=""
-							/></a>
-						</div>
-						<div class="p-4 pb-0 card-props">
-							<a class="d-block h6 mb-2 text-uppercase text-center" href=""
-								>Lujosa Oficina en Venta La Dehesa</a
-							>
-
-							<div class="d-flex py-2">
-								<small class="flex-fill text-center p-2"> UF 8.843</small>
-								<small class="flex-fill text-center py-2">|</small>
-								<small class="flex-fill text-center p-2">
-									CLP 302.825.086</small
-								>
-							</div>
-
-							<p class="text-center">
-								<i class="bi bi-pin-map"></i> Lo Barnechea, LO BARNECHEA
-							</p>
-
-							<div class="d-flex w-100">
-								<span class="flex-fill text-center p-2">
-									<i class="bi bi-building"></i> 100 m<sup>2</sup>
-								</span>
-								<span class="flex-fill text-center py-2">
-									<i class="fa-sharp fa-solid fa-bed"></i> 5
-								</span>
-								<span class="flex-fill text-center p-2">
-									<i class="fa-sharp fa-solid fa-toilet"></i> 4
-								</span>
-							</div>
-						</div>
-					</div>
-					<!-- Start Item 3 -->
-
-					<!-- Start Item 4 -->
-					<div class="property-item overflow-hidden">
-						<div class="position-relative overflow-hidden">
-							<a href="property-details.html"
-								><img
-									class="img-fluid"
-									src="assets/img/properties/property-4.jpg"
-									alt=""
-							/></a>
-						</div>
-						<div class="p-4 pb-0 card-props">
-							<a class="d-block h6 mb-2 text-uppercase text-center" href=""
-								>Lujosa Oficina en Venta La Dehesa</a
-							>
-
-							<div class="d-flex py-2">
-								<small class="flex-fill text-center p-2"> UF 8.843</small>
-								<small class="flex-fill text-center py-2">|</small>
-								<small class="flex-fill text-center p-2">
-									CLP 302.825.086</small
-								>
-							</div>
-
-							<p class="text-center">
-								<i class="bi bi-pin-map"></i> Lo Barnechea, LO BARNECHEA
-							</p>
-
-							<div class="d-flex w-100">
-								<span class="flex-fill text-center p-2">
-									<i class="bi bi-building"></i> 100 m<sup>2</sup>
-								</span>
-								<span class="flex-fill text-center py-2">
-									<i class="fa-sharp fa-solid fa-bed"></i> 5
-								</span>
-								<span class="flex-fill text-center p-2">
-									<i class="fa-sharp fa-solid fa-toilet"></i> 4
-								</span>
-							</div>
-						</div>
-					</div>
-					<!-- Start Item 4 -->
 				</div>
 			</div>
 		</div>
@@ -439,12 +312,9 @@
 		<!-- ======= Utstanding Properties Section ======= -->
 		<div class="outstanding-properties">
 			<div class="container wow fadeInUp" data-wow-delay="0.1s">
-				<div
-					class="owl-carousel properties-carousel wow fadeInUp"
-					data-wow-delay="0.1s"
-				>
+				<div class="owl-carousel properties-carousel wow fadeInUp" data-wow-delay="0.1s">
 					<!-- Start Item 1 -->
-					<div class="property-item overflow-hidden">
+					<!-- <div class="property-item overflow-hidden">
 						<div class="position-relative overflow-hidden">
 							<a href="property-details.html"
 								><img
@@ -482,134 +352,8 @@
 								</span>
 							</div>
 						</div>
-					</div>
-					<!-- Start Item 1 -->
-
-					<!-- Start Item 2 -->
-					<div class="property-item overflow-hidden">
-						<div class="position-relative overflow-hidden">
-							<a href="property-details.html"
-								><img
-									class="img-fluid"
-									src="assets/img/properties/property-1.jpg"
-									alt=""
-							/></a>
-						</div>
-						<div class="p-4 pb-0 card-props">
-							<a class="d-block h6 mb-2 text-uppercase text-center" href=""
-								>Lujosa Oficina en Venta La Dehesa</a
-							>
-
-							<div class="d-flex py-2">
-								<small class="flex-fill text-center p-2"> UF 8.843</small>
-								<small class="flex-fill text-center py-2">|</small>
-								<small class="flex-fill text-center p-2">
-									CLP 302.825.086</small
-								>
-							</div>
-
-							<p class="text-center">
-								<i class="bi bi-pin-map"></i> Lo Barnechea, LO BARNECHEA
-							</p>
-
-							<div class="d-flex w-100">
-								<span class="flex-fill text-center p-2">
-									<i class="bi bi-building"></i> 100 m<sup>2</sup>
-								</span>
-								<span class="flex-fill text-center py-2">
-									<i class="fa-sharp fa-solid fa-bed"></i> 5
-								</span>
-								<span class="flex-fill text-center p-2">
-									<i class="fa-sharp fa-solid fa-toilet"></i> 4
-								</span>
-							</div>
-						</div>
-					</div>
-					<!-- Start Item 2 -->
-
-					<!-- Start Item 3 -->
-					<div class="property-item overflow-hidden">
-						<div class="position-relative overflow-hidden">
-							<a href="property-details.html"
-								><img
-									class="img-fluid"
-									src="assets/img/properties/property-3.jpg"
-									alt=""
-							/></a>
-						</div>
-						<div class="p-4 pb-0 card-props">
-							<a class="d-block h6 mb-2 text-uppercase text-center" href=""
-								>Lujosa Oficina en Venta La Dehesa</a
-							>
-
-							<div class="d-flex py-2">
-								<small class="flex-fill text-center p-2"> UF 8.843</small>
-								<small class="flex-fill text-center py-2">|</small>
-								<small class="flex-fill text-center p-2">
-									CLP 302.825.086</small
-								>
-							</div>
-
-							<p class="text-center">
-								<i class="bi bi-pin-map"></i> Lo Barnechea, LO BARNECHEA
-							</p>
-
-							<div class="d-flex w-100">
-								<span class="flex-fill text-center p-2">
-									<i class="bi bi-building"></i> 100 m<sup>2</sup>
-								</span>
-								<span class="flex-fill text-center py-2">
-									<i class="fa-sharp fa-solid fa-bed"></i> 5
-								</span>
-								<span class="flex-fill text-center p-2">
-									<i class="fa-sharp fa-solid fa-toilet"></i> 4
-								</span>
-							</div>
-						</div>
-					</div>
-					<!-- Start Item 3 -->
-
-					<!-- Start Item 4 -->
-					<div class="property-item overflow-hidden">
-						<div class="position-relative overflow-hidden">
-							<a href="property-details.html"
-								><img
-									class="img-fluid"
-									src="assets/img/properties/property-4.jpg"
-									alt=""
-							/></a>
-						</div>
-						<div class="p-4 pb-0 card-props">
-							<a class="d-block h6 mb-2 text-uppercase text-center" href=""
-								>Lujosa Oficina en Venta La Dehesa</a
-							>
-
-							<div class="d-flex py-2">
-								<small class="flex-fill text-center p-2"> UF 8.843</small>
-								<small class="flex-fill text-center py-2">|</small>
-								<small class="flex-fill text-center p-2">
-									CLP 302.825.086</small
-								>
-							</div>
-
-							<p class="text-center">
-								<i class="bi bi-pin-map"></i> Lo Barnechea, LO BARNECHEA
-							</p>
-
-							<div class="d-flex w-100">
-								<span class="flex-fill text-center p-2">
-									<i class="bi bi-building"></i> 100 m<sup>2</sup>
-								</span>
-								<span class="flex-fill text-center py-2">
-									<i class="fa-sharp fa-solid fa-bed"></i> 5
-								</span>
-								<span class="flex-fill text-center p-2">
-									<i class="fa-sharp fa-solid fa-toilet"></i> 4
-								</span>
-							</div>
-						</div>
-					</div>
-					<!-- Start Item 4 -->
+					</div> -->
+					<!-- End Item 1 -->
 				</div>
 			</div>
 		</div>
@@ -761,6 +505,13 @@
 		<script src="assets/js/main.js"></script>
 		<script src="assets/js/owlCarousel.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+		<script type="module" src="js/prop_Destacada.js"></script>
+
+		<script type="module" src="js/utils/filterOnSubmit.js"></script>
+		<script type="module" src="js/utils/filterOnSubmitIndex.js"></script>
+	
+		<script type="module" src="js/utils/getSelects.js"></script>
 		
 	</body>
 </html>
