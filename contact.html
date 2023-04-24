@@ -50,6 +50,11 @@
     <!-- Template Main CSS File -->
     <link href="assets/css/normalize.css" rel="stylesheet" />
     <link href="assets/css/main.css" rel="stylesheet" />
+
+    	<!-- MAPBOX CSS -->
+		<link href="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css" rel="stylesheet">
+		<script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
+		<!--FIN MAPBOX CSS -->
   </head>
 
   <body>
@@ -92,14 +97,15 @@
             </div>
             <div class="row">
               <div class="col-lg-12">
-                <form>
+                <form method="post" id="form-contact" name="FormSubmit" action="#">
                   <div class="form-group">
                     <input
                       type="text"
                       class="form-control p-2"
-                      id="name"
+                      id="nombre"
                       name="name"
                       placeholder="Nombre"
+                      value="Nombre"
                     />
                   </div>
     
@@ -110,16 +116,20 @@
                       id="email"
                       name="email"
                       placeholder="E-mail"
+                      value="E-mail"
+
                     />
                   </div>
     
                   <div class="form-group">
                     <input
-                      type="text"
+                      type="number"
                       class="form-control p-2"
                       id="phone"
                       name="phone"
                       placeholder="Teléfono"
+                      value="Teléfono"
+
                     />
                   </div>
     
@@ -129,6 +139,7 @@
                       class="form-control p-2"
                       id="subject"
                       name="subject"
+                      value="Asunto"
                       placeholder="Asunto"
                     />
                   </div>
@@ -139,7 +150,8 @@
                       id="message"
                       name="message"
                       placeholder="Mensaje"
-                      rows="5"
+                      value="Mensaje"
+                      rows="3"
                     ></textarea>
                   </div>
     
@@ -152,22 +164,13 @@
                     </button>
                   </div>
                 </form>
+                <br>
+                <div id="respuesta"></div>
               </div>
             </div>
           </div>
-          <div class="col-sm-6 " style="margin-top: 100px;">
-            <div class="">
-              <h6 style="color: #fff;"><i class="bi bi-pin-map"></i>  RentalProp Spa Apoquindo 6410 Of. 605, Las Condes</h6>
-            </div>
-            <iframe
-              class="position-relative rounded w-100 h-50"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"
-              frameborder="0"
-              style="min-height: 400px; border: 0"
-              allowfullscreen=""
-              aria-hidden="false"
-              tabindex="0"
-            ></iframe>
+          <div class="col-sm-6 col-lg-6" style="margin-top: 130px;">
+            <div id="map"></div>
           </div>
         </div>
  
@@ -315,5 +318,10 @@
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/owlCarousel.js"></script>
+    
+		<script type="module" src="js/propiedad/mapsContact.js"></script>
+		<script type="module" src="js/utils/PostContact.js"></script>
+		<script type="module" src="js/utils/SendEmail.js"></script>
+
   </body>
 </html>

@@ -44,7 +44,7 @@ export default async function apiCallMap() {
 
 
                 new mapboxgl.Marker({
-                    color: '#04B0C3',
+                    color: '#00000',
                     scale: .8
                 })
 
