@@ -33,19 +33,10 @@ let img;
 //     })
 
 
-// document.getElementById('titleProp').innerHTML = 
-// `<div class="row justify-content-center">
-//     <div class="col-lg-6 text-center">
-//         <h3 style="text-transform: uppercase; color: #fff;">
-//             <b>${data.title}</b>
-//         </h3>
-//         <p style="font-size: 20px">
-//             <i class="fa-sharp fa-solid fa-location-dot"></i>
-//             ${data.city},${data.commune},
-//             <span>Chile</span>
-//         </p>
-//     </div>
-// </div> `
+document.getElementById('title-ubicacion').innerHTML = 
+`<h1 class="text-start"><b>${data.title}</b></h1>
+<h5><i class="bi bi-pin-map"></i> ${data.commune != null && data.commune != undefined && data.commune != "" ? data.commune : "No registra comuna"}, ${data.region != null && data.region != undefined && data.region != "" ? data.region : "No registra Región"}, Chile</h5>
+`
 
 // document.getElementById('container-carrucel-imgProps').innerHTML = 
 // `
@@ -83,114 +74,119 @@ let img;
 //         </div>
 // `
 
-// document.getElementById('container-descrip-propiedad').innerHTML = `
-// <div class="col-sm-8">
-// <p class="title" style="font-size: 38px"><b>UF ${clpToUf(data.price, ufValueAsNumber)}</b></p>
-// <p class="sub-title" style="font-size: 22px">
-//   CLP ${parseToCLPCurrency(data?.price)}
-// </p>
+document.getElementById('caract-prop').innerHTML = `
+    <div class="w-100">
+        <h2 class="w-100">Características</h2>
+    </div>
+   <tbody>
+                  <tr>
+                   <th scope="row">Código de propiedad</th>
+                   <td>${data.id}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Operación</th>
+                    <td>${data.operation}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Tipo de propiedad</th>
+                    <td>${data.types}</td>
+                  </tr>
+            
+                  <tr>
+                    <th scope="row">M<sup>2</sup></th>
+                    <td>${data.surface_m2}<sup>m2</sup></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Habitaciones</th>
+                    <td>${data.bedrooms != undefined && data.bedrooms != null && data.bedrooms != "" ? data.bedrooms : "0"}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Baños</th>
+                    <td>${data.bathrooms != undefined && data.bathrooms != null && data.bathrooms != "" ? data.bathrooms : "0"}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Estacionamiento(s)</th>
+                    <td>${data.coveredParkingLots != undefined && data.coveredParkingLots != null && data.coveredParkingLots != "" ? data.coveredParkingLots : "0"}</td>
+                  </tr>
+                </tbody>
+`;
 
-// <h2 class="title" style="font-size: 30px">
-//   <b>Descripción</b>
-// </h2>
-// <div class="content">
-//   <p>
-//     ${data.description != null && data.description != undefined && data.description != "" ? data.description : "No registra descripción" }
-//   </p>
-//   <h5>Requisitos</h5>
 
-//   <ul>
-//     <li>
-//       Excepturi numquam nihil cumque odio. Et voluptate
-//       cupiditate.
-//     </li>
 
-//     <li>Excepturi numquam nihil cumque oe.</li>
+document.getElementById('descrip-prop').innerHTML = `
+<h5 class="text-uppercase text-black-50">Descripción</h5>
+<p>
+  ${data.description != "" && data.description != null && data.description != undefined ? data.description : " Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet,ipsam."}
+</p>
 
-//     <li>Excepturi numquam nihil cumque oe.</li>
-//   </ul>
-// </div>
-// </div>
-// <div class="col-sm-4">
-// <div class="sidebar">
-//   <div class="sidebar-item search-form">
-//     <h3 class="sidebar-title text-uppercase">
-//       Detalles de la Propiedad
-//     </h3>
-//   </div>
+<p>
+${data.description != "" && data.description != null && data.description != undefined ? data.description : " Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet,ipsam."}
+</p>
 
-//   <div class="sidebar-item categories">
-//     <h3 class="sidebar-title"> ${data.operation} - ${data.types}</h3>
+<ul>
+  <li>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet,
+    ipsam.
+  </li>
+  <li>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet,
+    ipsam.
+  </li>
+  <li>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet,
+    ipsam.
+  </li>
+</ul>
+`;
 
-//     <ul class="mt-3">
-//       <li>
-//         <a href="#"
-//           >País <span class="text-dark">Chile</span></a
-//         >
-//       </li>
-//       <li>
-//         <a href="#"
-//           >Región
-//           <span class="text-dark">${data.region != null && data.region != undefined && data.region != "" ? data.region : "No registra región"}</span></a
-//         >
-//       </li>
-//       <li>
-//         <a href="#"
-//           >Ciudad <span class="text-dark">${data.commune  != null && data.commune != undefined && data.commune != "" ? data.commune : "No registra comuna"}</span></a
-//         >
-//       </li>
-//       <li>
-//         <a href="#"
-//           >Código <span class="text-dark">${data.id}</span></a
-//         >
-//       </li>
-//       <li>
-//         <a href="#"
-//           >Estado <span class="text-dark">${data.status}</span></a
-//         >
-//       </li>
-//       <li>
-//         <a href="#"
-//           >Superficie Construida
-//           <span class="text-dark">203 m<sup>${data.surface_m2 != null && data.surface_m2 != undefined && data.surface_m2 != "" ? data.surface_m2 : "0"}</sup></span></a
-//         >
-//       </li>
-//       <li>
-//         <a href="#"
-//           >Superficie Terreno
-//           <span class="text-dark">203 m<sup>${data.surface_m2 != null && data.surface_m2 != undefined && data.surface_m2 != "" ? data.surface_m2 : "0"}</sup></span></a
-//         >
-//       </li>
-//       <li>
-//         <a href="#"
-//           >Superficie Privada
-//           <span class="text-dark">203 m<sup>${data.surface_m2 != null && data.surface_m2 != undefined && data.surface_m2 != "" ? data.surface_m2 : "0"}</sup></span></a
-//         >
-//       </li>
-//       <li>
-//         <a href="#"
-//           >Habitaciones <span class="text-dark">${data.bedrooms != null && data.bedrooms != undefined && data.bedrooms != "" ? data.bedrooms : "0"}</span></a
-//         >
-//       </li>
-//       <li>
-//       <a href="#"
-//         >Habitaciones <span class="text-dark">${data.bathrooms != null && data.bathrooms != undefined && data.bathrooms != "" ? data.bathrooms : "0"}</span></a
-//       >
-//     </li>
-//       <li>
-//         <a href="#"
-//           >Estacionamientos
-//           <span class="text-dark">${data.coveredParkingLots != null && data.coveredParkingLots != undefined && data.coveredParkingLots != "" ? data.coveredParkingLots : "0"}</span></a
-//         >
-//       </li>
-//     </ul>
-//   </div> 
-// </div>
-// </div>
-// `
-// document.getElementById('info-ubicacion').innerHTML = `
-// <i class="fa-sharp fa-solid fa-location-dot"></i>
-// <span>${data.commune != null && data.commune != undefined && data.commune != "" ? data.commune : "No registra comuna"}, ${data.region != null && data.region != undefined && data.region != "" ? data.region : "No registra región"}, Chile</span>
-// `;
+
+document.getElementById('price-uf').innerHTML  = `
+<div class="text-center">
+<h4 style="font-size:33px;"><b>UF  ${clpToUf(data.price,ufValueAsNumber)}</b>
+</h4>
+</div>
+<div class="text-center">
+<h6> CLP ${parseToCLPCurrency(data?.price)}
+</h6>
+</div>
+`;
+
+
+document.getElementById('contact-form-corredor').innerHTML = `<div class="d-flex justify-content-center">
+<img
+  src="assets/img/user-profile/team-2.jpg"
+  class="rounded-circle w-50"
+  alt="Cinque Terre"
+/>
+</div>
+<div
+class="py-2 d-flex flex-column justify-content-center text-dark"
+>
+<h5 class="text-center">Lionel Messi</h5>
+<div class="d-flex flex-column justify-content-center">
+  <span
+    class="d-flex align-items-center justify-content-center"
+  >
+    <i class="bi bi-envelope-open ml-2"></i>
+    <small href="tel:+56912345678"
+      >correocorredor@gmail.com</small
+    >
+  </span>
+  <span
+    class="d-flex align-items-center justify-content-center"
+  >
+    <i class="bi bi-telephone ml-2"></i>
+    <small href="tel:+56912345678">+56 9 12345678</small>
+  </span>
+
+  <div class="w-100 d-flex justify-content-center">
+    <button type="button" class="btn btn-default">
+      Contactar por whatsapp
+    </button>
+  </div>
+</div>
+</div>
+<hr />
+`
 
 }
