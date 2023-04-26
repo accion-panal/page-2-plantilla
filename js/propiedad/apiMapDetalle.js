@@ -37,10 +37,7 @@ const map = new mapboxgl.Map({
             // create DOM element for the marker
             const ubicacion = document.createElement('div');
             ubicacion.id = 'marker';
-            // el.style.backgroundImage = `${data.img != null && data.img != '' && data.img != undefined ? data.img : "images/Sin.png"}`;
-            // el.style.width = `${50}px`;
-            // el.style.height = `${50}px`;
-            // el.style.backgroundSize = "100%";
+
         
             new mapboxgl.Marker({
                 color: '#000',

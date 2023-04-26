@@ -16,21 +16,17 @@ let indicator;
 let img;
 
 
+console.log(id); // Imprimirá "134" si ese es el valor actual del parámetro "id"
 
-
-
-
-// console.log(id); // Imprimirá "134" si ese es el valor actual del parámetro "id"
-
-// data.images.forEach((images, index) => {img +=
-//     ` <div class="carousel-item ${ index == 0 ? "active" : ""} ">
-//         <img src="${images != undefined && images != null && images != "" ? images : "assets/img/Sin.png"}" />
-//      </div> 	
-//     `
-//     indicator += `
-//     <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="${index}" ${index == 0 ? "class = active": ""} aria-current="true" aria-label="${index + 1}"></button>
-//     `
-//     })
+data.images.forEach((images, index) => {img +=
+    ` <div class="carousel-item ${ index == 0 ? "active" : ""} ">
+        <img src="${images != undefined && images != null && images != "" ? images : "assets/img/Sin.png"}" class="img-property-detail"/>
+     </div> 	
+    `
+    indicator += `
+    <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="${index}" ${index == 0 ? "class = active": ""} aria-current="true" aria-label="${index + 1}"></button>
+    `
+    })
 
 
 document.getElementById('title-ubicacion').innerHTML = 
@@ -38,41 +34,32 @@ document.getElementById('title-ubicacion').innerHTML =
 <h5><i class="bi bi-pin-map"></i> ${data.commune != null && data.commune != undefined && data.commune != "" ? data.commune : "No registra comuna"}, ${data.region != null && data.region != undefined && data.region != "" ? data.region : "No registra Región"}, Chile</h5>
 `
 
-// document.getElementById('container-carrucel-imgProps').innerHTML = 
-// `
-// <div
-//           id="hero-carousel"
-//           class="carousel slide"
-//           data-bs-ride="carousel"
-//           data-bs-interval="5000"
-//           style="height: 80vh !important;"
-//         >
-//          </div>
-            
-//           <a
-//             class="carousel-control-prev"
-//             href="#hero-carousel"
-//             role="button"
-//             data-bs-slide="prev"
-//           >
-//             <span
-//               class="carousel-control-prev-icon bi bi-chevron-left"
-//               aria-hidden="true"
-//             ></span>
-//           </a>
-//           <a
-//             class="carousel-control-next"
-//             href="#hero-carousel"
-//             role="button"
-//             data-bs-slide="next"
-//           >
-//             <span
-//               class="carousel-control-next-icon bi bi-chevron-right"
-//               aria-hidden="true"
-//             ></span>
-//           </a>
-//         </div>
-// `
+document.getElementById('container-carrucel-imgProps').innerHTML = 
+` <div class="section" style="padding-top:2rem; padding-bottom:2rem">
+				<div class="container" >
+					<div class="row">
+						<div class="col">											
+						<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+						<div class="carousel-indicators">
+						${indicator != undefined && indicator != null ? indicator : "no registra imagenes"}
+						</div>
+						<div class="carousel-inner">
+						${img}									
+						</div>	
+						<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+						  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						  <span class="visually-hidden">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+						  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+						  <span class="visually-hidden">Next</span>
+						</button>
+					  </div>
+						</div>
+					</div>
+				</div>
+			</div>
+`
 
 document.getElementById('caract-prop').innerHTML = `
     <div class="w-100">
@@ -154,7 +141,7 @@ document.getElementById('price-uf').innerHTML  = `
 
 document.getElementById('contact-form-corredor').innerHTML = `<div class="d-flex justify-content-center">
 <img
-  src="assets/img/user-profile/team-2.jpg"
+  src="assets/img/Sin.png"
   class="rounded-circle w-50"
   alt="Cinque Terre"
 />

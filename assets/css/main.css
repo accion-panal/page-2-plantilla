@@ -1278,7 +1278,7 @@ footer .container .footer-nav {
 }
 
 .about .card-item .card-bg {
-  background-image: url('../img/about/about-team.jpg') !important;
+  /* background-image: url('../img/about/about-team.jpg') !important; */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1569,6 +1569,7 @@ footer .container .footer-nav-links ul li {
 
 .img-property{
   width: 100% !important;
+  height: 36vh;
 }
 
 .img-card-property{
@@ -1598,4 +1599,17 @@ footer .container .footer-nav-links ul li {
 }
 .more:hover{
   color : #00c5ab
+}
+
+
+.img-property-detail{
+  height: 80vh !important;
+  width: 100%;
+}
+
+@media (max-width: 575px){
+  .img-property-detail{
+    height: 60vh !important;
+  
+  }
 }

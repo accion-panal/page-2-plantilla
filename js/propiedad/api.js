@@ -24,11 +24,11 @@ document.getElementById("totalItems").innerHTML = `<div>${response.meta.totalIte
       <div class="property-item-list rounded">
           <div class="row">
             <div class="col-lg-6">
-              <div class="position-relative ">
+              <div class="position-relative mt-4">
                 <a href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${1}"
                 ><img
                   class="img-fluid img-property"
-                  src="assets/img/properties/property-1.jpg"
+                  src="${data.image != null && data.image != "" && data.image != undefined ? data.image : "assets/img/Sin.png"}"
                   alt=""
               /></a>
               <div
@@ -76,13 +76,10 @@ document.getElementById("totalItems").innerHTML = `<div>${response.meta.totalIte
                 </div>
               </div>
             </div>
-          </div>
-    
-      </div>
-      
+          </div>   
+      </div>      
     </div>
-      
-      ` ).join('');
+` ).join('');
 
     document.getElementById('container-propiedad-list').innerHTML = data.map(data => `
     <div class="col-sm-4 property">
@@ -91,7 +88,7 @@ document.getElementById("totalItems").innerHTML = `<div>${response.meta.totalIte
 												<a href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${1}"
 													><img
 														class="img-fluid img-card-property"
-														src="assets/img/properties/property-1.jpg"
+														src="${data.image != null && data.image != undefined && data.image != " " ? data.image : "assets/img/Sin.png"}"
 														alt=""
 												/></a>
 												<div
@@ -134,9 +131,7 @@ document.getElementById("totalItems").innerHTML = `<div>${response.meta.totalIte
 												</div>
 											</div>
 										</div>
-									</div>
-  
-    `).join('')
+									</div>`).join('')
      
 
 

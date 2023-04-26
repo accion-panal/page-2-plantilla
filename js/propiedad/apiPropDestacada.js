@@ -23,22 +23,18 @@ const ufValueAsNumber = parseFloat(ufValue.replace(',', '.'));
 												<a href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${1}"
 													><img
 														class="img-fluid img-card-property"
-														src="assets/img/properties/property-1.jpg"
+														src="${data.image != null ? data.image : "assets/img/Sin.png"}"
 														alt=""
 												/></a>
-												<div
-													class="bg-dark rounded text-white position-absolute end-0 top-0 m-4 py-1 px-3"
-												>
-                        ${data.operation} / ${data.types}
+												<div class="bg-dark rounded text-white position-absolute end-0 top-0 m-4 py-1 px-3">
+                        							${data.operation} / ${data.types}
 												</div>
 											</div>
 											<div class="item-info">
 												<div class="p-4 pb-0 card-props">
-													<a
-														class="d-block h5 mb-4 text-uppercase text-center"
+													<a class="d-block h5 mb-4 text-uppercase text-center"
 														href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${1}"
-														>${data.title}</a
-													>
+														>${data.title}</a>
 												</div>
 												<div class="p-4 pb-0 card-props">
 													<p class="text-center">
