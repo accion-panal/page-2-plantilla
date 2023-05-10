@@ -79,7 +79,7 @@ document.getElementById("totalItems").innerHTML = `<div>${response.meta.totalIte
           </div>   
       </div>      
     </div>
-` ).join('');
+` ).join("");
 
     document.getElementById('container-propiedad-list').innerHTML = data.map(data => `
     <div class="col-sm-4 property">
@@ -131,7 +131,7 @@ document.getElementById("totalItems").innerHTML = `<div>${response.meta.totalIte
 												</div>
 											</div>
 										</div>
-									</div>`).join('')
+									</div>`).join("");
      
 
 

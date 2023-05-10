@@ -35,4 +35,9 @@ document.getElementById("bedrooms").value = query.bedrooms;
 document.getElementById("covered_parking_lots").value = query.covered_parking_lots;
 
 
-document.getElementById('buscar2').click();
+if (document.getElementById('buscar2') !== null ){
+  document.getElementById('buscar2').click();
+
+}else{
+  console.log("Error en filtros index")
+}
