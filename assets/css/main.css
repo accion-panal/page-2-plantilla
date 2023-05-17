@@ -22,6 +22,21 @@
   --bg-primary-opacity: #1e8bffcc;
   --bg-secundary-opacity: #0c0c0c62;
 
+
+  /* Colores adjustables */
+  --color-primary: #1e8bff;
+  --color-secundary: #7d858c;
+  --color-info: #1d1d1d;
+  --color-success: #ffffff;
+
+  /* Colores adjustables opacity */
+  --color-primary-opacity: #1e8bffd4;
+  --color-secundary-opacity: #7d858cd4;
+  --color-info-opacity: #1d1d1dd4;
+  --color-success-opacity: #ffffffd4;
+
+
+
   /* font size */
   --font-size-2xl: 2.2rem;
   --font-size-xxl: 2rem;
