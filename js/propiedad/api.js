@@ -6,20 +6,40 @@ import {parseToCLPCurrency, clpToUf} from "../utils/getExchangeRate.js";
 
 
 export default async function apiCall() {
-const response = await getProperties(0, 1, 1);
-const data = response.data;
+  const response = await getProperties(0, 1, 1);
+  const data = response.data;
 
-console.log(data)
+  const response2 = await ExchangeRateServices.getExchangeRateUF();
+  const ufValue = response2?.UFs[0]?.Valor
+  const ufValueAsNumber = parseFloat(ufValue.replace(',', '.'));
 
-const response2 = await ExchangeRateServices.getExchangeRateUF();
-const ufValue = response2?.UFs[0]?.Valor
-const ufValueAsNumber = parseFloat(ufValue.replace(',', '.'));
+  const filtroSelect = document.getElementById('FilterPrice');
+  filtroSelect.addEventListener('change', handleFilterChange);
+  showItems();
+
+  function handleFilterChange() {
+    const selectedValue = filtroSelect.value;
+    console.log(selectedValue);
+    console.log(data);
+  
+    let dataOrdenada;
+  
+    if (selectedValue === 'MayorMenor') {
+      /* console.log('La opción seleccionada es MayorMenor'); */
+      dataOrdenada = data.sort((a, b) => b.price - a.price);
+    } else {
+      /* console.log('La opción seleccionada es Menor mayor'); */
+      dataOrdenada = data.sort((a, b) => a.price - b.price);
+    }
+    console.log(dataOrdenada);
+    showItems();
+  }
+
+  document.getElementById("totalItems").innerHTML = `<div>${response.meta.totalItems} Propiedades encontradas </div>`
 
 
-document.getElementById("totalItems").innerHTML = `<div>${response.meta.totalItems} Propiedades encontradas
-	</div>`
-
-  document.getElementById('container-cards').innerHTML = data.map(data => 
+  function showItems() {
+    document.getElementById('container-cards').innerHTML = data.map(data => 
       `<div class="col-sm-12 col-lg-12 property">
       <div class="property-item-list rounded">
           <div class="row">
@@ -53,7 +73,11 @@ document.getElementById("totalItems").innerHTML = `<div>${response.meta.totalIte
                     <i class="bi bi-pin-map"></i> ${data.commune != null && data.commune != undefined && data.commune != "" ? data.commune : "No registra comuna"}, ${data.region != null && data.region != undefined && data.region != "" ? data.region : "No registra Región"}, Chile
                   </p>
                 </div>
-              
+                <div class="">
+                  <p class="text-center">
+                    COD: ${data.id}
+                  </p>
+                </div>
                 <div class="mt-5 d-flex">
                   <h4 class="flex-fill text-center py-2">
                     <b>UF ${clpToUf(data.price,ufValueAsNumber)}</b>
@@ -79,9 +103,9 @@ document.getElementById("totalItems").innerHTML = `<div>${response.meta.totalIte
           </div>   
       </div>      
     </div>
-` ).join("");
+  ` ).join("");
 
-    document.getElementById('container-propiedad-list').innerHTML = data.map(data => `
+  document.getElementById('container-propiedad-list').innerHTML = data.map(data => `
     <div class="col-sm-4 property">
 										<div class="property-item-card rounded ">
 											<div class="position-relative">
@@ -110,6 +134,11 @@ document.getElementById("totalItems").innerHTML = `<div>${response.meta.totalIte
 														<i class="bi bi-pin-map"></i> ${data.commune != null && data.commune != undefined && data.commune != "" ? data.commune : "No registra comuna"}, ${data.region != null && data.region != undefined && data.region != "" ? data.region : "No registra Región"}, Chile
 													</p>
 												</div>
+                        <div class="">
+													<p class="text-center">
+														COD: ${data.id}
+													</p>
+												</div>
 												<div class="d-flex">
 													<h4 class="flex-fill text-center py-2">
 														<b>UF ${clpToUf(data.price,ufValueAsNumber)}</b>
@@ -131,7 +160,11 @@ document.getElementById("totalItems").innerHTML = `<div>${response.meta.totalIte
 												</div>
 											</div>
 										</div>
-									</div>`).join("");
+									</div>
+  `).join("");
+  }
+
+  
      
 
 
