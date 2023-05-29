@@ -82,7 +82,7 @@ document.getElementById("totalItems").innerHTML = `<div>${response.meta.totalIte
 ` ).join("");
 
     document.getElementById('container-propiedad-list').innerHTML = data.map(data => `
-    <div class="col-sm-4 property">
+    <div class="col-lg-12 col-md-12 col-sm-12 property">
 										<div class="property-item-card rounded ">
 											<div class="position-relative">
 												<a href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${1}"

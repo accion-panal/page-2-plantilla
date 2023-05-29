@@ -23,13 +23,13 @@
   --bg-secundary-opacity: #0c0c0c62;
 
 
-  /* Colores adjustables */
+  /* Colores ajustables */
   --color-primary: #1e8bff;
   --color-secundary: #7d858c;
   --color-info: #1d1d1d;
   --color-success: #ffffff;
 
-  /* Colores adjustables opacity */
+  /* Colores ajustables opacity */
   --color-primary-opacity: #1e8bffd4;
   --color-secundary-opacity: #7d858cd4;
   --color-info-opacity: #1d1d1dd4;
@@ -713,7 +713,7 @@ section {
   justify-content: center;
   flex-direction: column;
   border: 1px solid var(--bg-light);
-  height: 90% !important;
+  height: 100% !important;
 }
 
 
@@ -1259,7 +1259,7 @@ footer .container .footer-nav {
 
 @media (min-width: 768px) {
   .hero .bg-section {
-    width: 50%;
+    width: 80%;
     padding: 5rem 2.5rem;
   }
   .hero .row {
