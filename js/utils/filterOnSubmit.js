@@ -194,6 +194,11 @@ document.getElementById("buscar")?.addEventListener("click", async () => {
                       <i class="bi bi-pin-map"></i> ${data.commune != null && data.commune != undefined && data.commune != "" ? data.commune : "No registra comuna"}, ${data.region != null && data.region != undefined && data.region != "" ? data.region : "No registra Región"}, Chile
                     </p>
                   </div>
+                  <div class="">
+                    <p class="text-center">
+                      COD: ${data.id}
+                    </p>
+                  </div>
                 
                   <div class="mt-5 d-flex">
                     <h4 class="flex-fill text-center py-1">
@@ -242,7 +247,7 @@ document.getElementById("buscar")?.addEventListener("click", async () => {
             <div class="item-info">
                 <div class="p-4 pb-0 card-props">
                     <a
-                        class="d-block h5 mb-4 text-uppercase text-center"
+                        class="d-block h5 mb-4 text-uppercase text-center textLimitClass"
                         href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${1}"
                         >${data.title}</a
                     >
@@ -251,6 +256,11 @@ document.getElementById("buscar")?.addEventListener("click", async () => {
                     <p class="text-center">
                         <i class="bi bi-pin-map"></i> ${data.commune != null && data.commune != undefined && data.commune != "" ? data.commune : "No registra comuna"}, ${data.region != null && data.region != undefined && data.region != "" ? data.region : "No registra Región"}, Chile
                     </p>
+                </div>
+                <div class="">
+                  <p class="text-center">
+                    COD: ${data.id}
+                  </p>
                 </div>
                 <div class="d-flex">
                     <h4 class="flex-fill text-center py-1">
