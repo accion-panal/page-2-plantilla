@@ -66,6 +66,14 @@ const ufValueAsNumber = parseFloat(ufValue.replace(',', '.'));
             drag :"free",
             autoplay: "play",
             perPage: 3,
+			breakpoints: {
+				1399: {
+				  perPage: 2,
+				},
+				991: {
+				  perPage: 1,
+				}
+			  }
         });
         splide.mount();
 }
