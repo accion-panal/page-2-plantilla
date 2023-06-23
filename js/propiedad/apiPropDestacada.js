@@ -1,26 +1,34 @@
 import { getProperties } from "../services/PropertiesServices.js"
 
-
 import	ExchangeRateServices from  "../services/ExchangeRateServices.js";
 
 import {parseToCLPCurrency, clpToUf} from "../utils/getExchangeRate.js";
 
+import { PropertyData } from "../Data/userId.js";
+
+
 export default async function apiDestCall() {
-    let {data} = await getProperties(0,1,1);
+	const { CodigoUsuarioMaestro, companyId, realtorId } = PropertyData;
+	let {data} = await getProperties(1, 10, CodigoUsuarioMaestro, 1, companyId, realtorId);
     let filtrado = data.filter(data => data.highlighted != null && data.highlighted  != false );
+	console.log(filtrado);
 
+	filtrado = filtrado.map(item => {
+		// Reemplazar "\" por "//" en la propiedad "image"
+		item.image = item.image.replace(/\\/g, "//");
+		return item;
+	});
 
-
-const response2 = await ExchangeRateServices.getExchangeRateUF();
-const ufValue = response2?.UFs[0]?.Valor
-const ufValueAsNumber = parseFloat(ufValue.replace(',', '.'));
+	const response2 = await ExchangeRateServices.getExchangeRateUF();
+	const ufValue = response2?.UFs[0]?.Valor
+	const ufValueAsNumber = parseFloat(ufValue.replace(',', '.'));
   
         document.getElementById('container-prop-destacada').innerHTML = filtrado.map(data => 
           `<li class="splide__slide">
           		<div class="col-lg-11 property">
 						<div class="property-item-card rounded ">
 								<div class="position-relative">
-										<a href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${1}">
+										<a href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${companyId}">
 										<img class="img-fluid img-card-property" src="${data.image != null ? data.image : "assets/img/Sin.png"}" alt=""/></a>
 									<div class="bg-dark rounded text-white position-absolute end-0 top-0 m-4 py-1 px-3">
                         				${data.operation} / ${data.types}

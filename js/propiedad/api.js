@@ -1,11 +1,10 @@
-import { getProperties } from "../services/PropertiesServices.js"
-
-import	ExchangeRateServices from  "../services/ExchangeRateServices.js";
-
-import {parseToCLPCurrency, clpToUf} from "../utils/getExchangeRate.js";
-
+import renderCall from "./render.js";
 
 export default async function apiCall() {
+  localStorage.removeItem('globalResponse');
+  renderCall();
+}
+/* export default async function apiCall() {
   const response = await getProperties(0, 1, 1);
   const data = response.data;
 
@@ -25,10 +24,10 @@ export default async function apiCall() {
     let dataOrdenada;
   
     if (selectedValue === 'MayorMenor') {
-      /* console.log('La opción seleccionada es MayorMenor'); */
+      
       dataOrdenada = data.sort((a, b) => b.price - a.price);
     } else {
-      /* console.log('La opción seleccionada es Menor mayor'); */
+      
       dataOrdenada = data.sort((a, b) => a.price - b.price);
     }
     console.log(dataOrdenada);
@@ -171,4 +170,4 @@ export default async function apiCall() {
 
 
 }
-
+ */

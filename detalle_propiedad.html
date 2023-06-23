@@ -55,6 +55,7 @@
 		<link href="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css" rel="stylesheet">
 		<script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
 		<!--FIN MAPBOX CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
   </head>
 
   <body>
@@ -117,6 +118,14 @@
           <div class="swiper-button-next"></div>
 
         </div>       -->
+        <section class="splide" aria-label="Splide Basic HTML Example">
+          <div class="splide__track">
+            <ul class="splide__list" id="carrucel-img">
+              <!-- <li class="splide__slide">Slide 01</li> -->
+             
+            </ul>
+          </div>
+        </section>
       </div>
     </section><!-- End Projet Details Section -->
     
@@ -323,7 +332,7 @@
                         </div>
                       </form>
                       <br>
-                      <div id="respuesta"></div>
+                      <div class="alert visually-hidden" role="alert" id="respuesta"></div>
                     </div>
                   </div>
                 </div> 
@@ -424,19 +433,19 @@
               <ul>
                 <li style="color: #fff !important;">
                   <i class="bi bi-geo-alt"></i>
-                  <span
+                  <span  id="address-ContactInfo"
                     >RentalProp Spa Apoquindo 6410 Of. 605, Las Condes</span
                   >
                 </li>
                 <li style="color: #fff !important;">
                   <i class="bi bi-telephone"></i>
-                  <span
+                  <span id="phone-ContactInfo"
                     >RentalProp Spa Apoquindo 6410 Of. 605, Las Condes</span
                   >
                 </li>
                 <li style="color: #fff !important;">
                   <i class="bi bi-envelope-open mr-3"></i>
-                  <span
+                  <span id="email-ContactInfo"
                     >RentalProp Spa Apoquindo 6410 Of. 605, Las Condes</span
                   >
                 </li>
@@ -483,11 +492,13 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/owlCarousel.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
 
 
     <script type="module" src="js/detalles_Prop.js"></script>
     <script type="module" src="js/MapPropDetail.js"></script>
     <script type="module" src="js/utils/PostContactDetail.js"></script>
 		<script type="module" src="js/utils/SendEmailDetail.js"></script>
+    <script type="module" src="js/Data//ContactInfo.js"></script>
   </body>
 </html>
