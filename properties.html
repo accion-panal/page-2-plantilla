@@ -100,7 +100,7 @@
 							</div>
 
 							<div class="col-sm-6">
-								<select class="form-select" id="region">
+								<select class="form-select" id="regionTextId">
 									<option value="0" selected>Región</option>
 								</select>
 							</div>
@@ -124,7 +124,7 @@
 							</div>
 
 							<div class="col-sm-6">
-								<select class="form-select" id="commune">
+								<select class="form-select" id="communeTextId">
 									<option value="" selected>Comuna</option>
 									
 								</select>
@@ -137,10 +137,10 @@
 										class="form-check-input"
 										type="checkbox"
 										value="uf"
-										id="flexCheckDefault"
+										id="inlineRadio1"
 										checked
 									/>
-									<label class="form-check-label" for="flexCheckDefault">
+									<label class="form-check-label" for="inlineRadio1">
 										UF
 									</label>
 								</div>
@@ -149,9 +149,9 @@
 										class="form-check-input"
 										type="checkbox"
 										value="clp"
-										id="flexCheckChecked"
+										id="inlineRadio2"
 									/>
-									<label class="form-check-label" for="flexCheckChecked">
+									<label class="form-check-label" for="inlineRadio2">
 										CLP
 									</label>
 								</div>
@@ -283,32 +283,40 @@
 							>
 							<ul class="nav nav-pills " id="pills-tab" role="tablist">
 								<li class="nav-item" role="presentation">
-								  <button type="button" class="btn btn-light btn-list text-dark active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+								 <!--  <button type="button" class="btn btn-light btn-list text-dark active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
 									<span>
-										<i class="bi bi-list-ul"></i>
+										<i class="bi bi-list-ul">
+										 	
+										</i>
 									</span>
-								</button>
+									</button>
+									
+								 -->
+								 <a class="btn btn-light btn-list text-dark active" href="properties.html" ><i class="bi bi-list-ul"></i></a>
 								</li>
 								<li class="nav-item" role="presentation">
-									<button type="button" class="btn btn-light btn-grid" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
+									<!-- <button type="button" class="btn btn-light btn-grid" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
 										<span>
 											<i class="bi bi-grid-fill"></i>
 										</span>
-									</button>
+									</button> -->
+									<a class="btn btn-light btn-grid" href="properties_list.html" ><i class="bi bi-grid-fill"></i></a>
+
 								</li>
 								<li class="nav-item" role="presentation">
-									<button type="button" class="btn btn-light btn-map" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" >
+									<!-- <button type="button" class="btn btn-light btn-map" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" >
 										<span>
 											<i class="bi bi-pin-map"></i>
 										</span>
-									</button>
+									</button> -->
+								 <a class="btn btn-light btn-map" href="properties_map.html" ><i class="bi bi-pin-map"></i></a>
 								</li>
 							</ul>
 							</div>
 						</div>
 
 						<div class="setting-props-layout__filter">
-							<div id="totalItems">
+							<div id="total-prop">
 								<p>propiedades encontradas</p>
 							</div>
 							<div class="d-flex align-items-center">
@@ -388,7 +396,7 @@
 								
 							</div>
 							<div class="tab-pane fade " id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-								<div class="row g-3" id="container-cards">
+								<div class="row g-3" id="container-propiedad">
 									<!-- item 1 -->
 									<!-- <div class="col-sm-4 property-item">
 										<div class="property-item-card rounded ">
@@ -443,36 +451,13 @@
 									<!-- Fin item 1 -->
 								</div>
 							</div>
-							<div class="tab-pane fade active" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+							<!-- <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
 								<div id="map"></div> 
-							</div>
+							</div> -->
 						</div>
 
-						<div id="pagination" class="bg-light rounded my-3">
-							<ul class="pagination">
-								<li class="page-item disabled">
-									<a class="page-link" href="#" tabindex="-1">
-										<i class="fa-sharp fa-solid fa-arrow-left"></i>
-									</a>
-								</li>
-								<li class="page-item">
-									<a class="page-link" href="#">1</a>
-								</li>
-								<li class="page-item active">
-									<a class="page-link" href="#"
-										>2 <span class="sr-only">(current)</span></a
-									>
-								</li>
-								<li class="page-item">
-									<a class="page-link" href="#">3</a>
-								</li>
-								<li class="page-item">
-									<a class="page-link" href="#">
-										<i class="fa-sharp fa-solid fa-arrow-right"></i>
-									</a>
-								</li>
-							</ul>
-						</div>
+						<div id="pagination-col">
+						</div>  
 					</div>
 					<!-- End blog pagination -->
 				</div>
@@ -564,20 +549,20 @@
 								<ul>
 									<li style="color: #fff !important">
 										<i class="bi bi-geo-alt"></i>
-										<span
+										<span id="address-ContactInfo"
 											>RentalProp Spa Apoquindo 6410 Of. 605, Las Condes</span
 										>
 									</li>
 									<li style="color: #fff !important">
 										<i class="bi bi-telephone"></i>
-										<span
-											>RentalProp Spa Apoquindo 6410 Of. 605, Las Condes</span
+										<span id="phone-ContactInfo">
+											RentalProp Spa Apoquindo 6410 Of. 605, Las Condes</span
 										>
 									</li>
 									<li style="color: #fff !important">
 										<i class="bi bi-envelope-open mr-3"></i>
-										<span
-											>RentalProp Spa Apoquindo 6410 Of. 605, Las Condes</span
+										<span id="email-ContactInfo">
+											RentalProp Spa Apoquindo 6410 Of. 605, Las Condes</span
 										>
 									</li>
 								</ul>
@@ -625,7 +610,7 @@
 		<!-- Template Main JS File -->
 		<script src="assets/js/main.js"></script>
 		<script src="assets/js/owlCarousel.js"></script>
-		<script src="assets/js/viewProperties.js"></script>
+		<!-- <script src="assets/js/viewProperties.js"></script> -->
 		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 		<script type="module" src="js/index.js"></script>
@@ -633,11 +618,12 @@
 
 		<script type="module" src="js/utils/getExchangeRate.js"></script>
 
-		<script type="module" src="js/utils/filterOnSubmit.js"></script>
-		<script type="module" src="js/utils/filterOnSubmitIndex.js"></script>
+<!-- 		<script type="module" src="js/utils/filterOnSubmit.js"></script>
+		<script type="module" src="js/utils/filterOnSubmitIndex.js"></script> -->
     
 		<script type="module" src="js/utils/getSelects.js"></script>
-
-	
+		<script type="module" src="js/Data/ContactInfo.js"></script>
+		<script type="module" src="js/utils/pagination.js"></script>
+		<script type="module" src="js/utils/filterOnSearch.js"></script>
 	</body>
 </html>
