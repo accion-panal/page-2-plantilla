@@ -13,7 +13,7 @@ export default async function apiCallMap() {
         style: 'mapbox://styles/mapbox/streets-v11',
         center: [-70.680628,-33.469970],
         // projection: 'globe',
-        zoom:5,
+        zoom:7,
 
     });
 

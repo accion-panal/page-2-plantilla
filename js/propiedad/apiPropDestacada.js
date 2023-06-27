@@ -29,7 +29,8 @@ export default async function apiDestCall() {
 						<div class="property-item-card rounded ">
 								<div class="position-relative">
 										<a href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${companyId}">
-										<img class="img-fluid img-card-property" src="${data.image != null ? data.image : "assets/img/Sin.png"}" alt=""/></a>
+										${data.image.endsWith('.jpg') ? `<img src=${data.image} alt="Image" class="img-fluid img-card-property">`: data.image.endsWith('.png') ? `<img src=${data.image} alt="Image" class="img-fluid img-card-property">` : data.image.endsWith('.jpeg') ? `<img src=${data.image} alt="Image" class="img-fluid img-card-property">`: `<img src='https://res.cloudinary.com/dbrhjc4o5/image/upload/v1681933697/unne-media/errors/not-found-img_pp5xj7.jpg' alt="Image" class="img-fluid img-card-property">`}
+										</a>
 									<div class="bg-dark rounded text-white position-absolute end-0 top-0 m-4 py-1 px-3">
                         				${data.operation} / ${data.types}
 									</div>
@@ -38,6 +39,7 @@ export default async function apiDestCall() {
 									<div class="p-4 pb-0 card-props">
 										<a class="d-block h5 mb-4 text-uppercase text-center" href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${1}">${data.title}</a>
 									</div>
+									<p class="text-center">Cod. Prop: ${data.id}</p>
 								<div class="p-4 pb-0 card-props">
 									<p class="text-center">
 										<i class="bi bi-pin-map"></i> ${data.commune != null && data.commune != undefined && data.commune != "" ? data.commune : "No registra comuna"}, ${data.region != null && data.region != undefined && data.region != "" ? data.region : "No registra Región"}, Chile
