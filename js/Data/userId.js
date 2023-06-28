@@ -24,4 +24,16 @@ export const ContactInformation = {
     address:'RentalProp Spa Apoquindo 6410 Of.605, Las condes',
     phone:'+56 9 5046 9097',
     email:'Contacto@rentalprop.cl',
+    horarioSemana:'Lunes a viernes 8:30 - 18:00hrs.',
+    horarioFinSemana:'Sabado 9:00 - 14:30hrs.',
+}
+
+
+export const ContactFooter = {
+    address:'tFooter-RentalProp Spa Apoquindo 6410 Of.605, Las condes',
+    phone:'tFooter-+56 9 5046 9097',
+    email:'tFooter-Contacto@rentalprop.cl',
+    horarioSemana:'Lunes a viernes 8:30 - 18:00hrs.',
+    horarioFinSemana:'Sabado 9:00 - 14:30hrs.',
+    
 }
