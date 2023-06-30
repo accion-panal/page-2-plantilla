@@ -3,7 +3,7 @@ import { getPropertiesForId } from "../services/PropertiesServices.js";
 
 import	ExchangeRateServices from  "../services/ExchangeRateServices.js";
 
-import {parseToCLPCurrency, clpToUf} from "../utils/getExchangeRate.js"
+import {parseToCLPCurrency, clpToUf, validationUF, validationCLP, ufToClp} from "../utils/getExchangeRate.js"
 
 export default async function apiDetalleCall(id, realtorId, statusId, companyId){
   let {data} = await getPropertiesForId(id, realtorId, statusId, companyId );
@@ -15,6 +15,13 @@ export default async function apiDetalleCall(id, realtorId, statusId, companyId)
   let indicator;
 
   let realtorInfo = data.realtor;
+
+  
+  //! transformar valor del uf a int
+  const cleanedValue = ufValue.replace(/\./g, '').replace(',', '.');
+  const ufValueAsInt = parseFloat(cleanedValue).toFixed(0);
+ //!--
+
   console.log(realtorInfo);
 
   let updatedImages = data.images.map(function (image) {
@@ -156,11 +163,11 @@ export default async function apiDetalleCall(id, realtorId, statusId, companyId)
 
   document.getElementById('price-uf').innerHTML  = `
   <div class="text-center">
-  <h4 style="font-size:33px;"><b>UF  ${clpToUf(data.price,ufValueAsNumber)}</b>
+  <h4 style="font-size:33px;"><b>UF${validationUF(data.currency.isoCode) ? data.price : clpToUf(data.price, ufValueAsNumber)}</b>
   </h4>
   </div>
   <div class="text-center">
-  <h6> CLP ${parseToCLPCurrency(data?.price)}
+  <h6> CLP ${validationCLP(data.currency.isoCode) ? parseToCLPCurrency(data?.price): parseToCLPCurrency(ufToClp(data.price, ufValueAsInt))}
   </h6>
   </div>
   `;
