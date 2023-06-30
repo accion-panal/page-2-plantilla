@@ -2,7 +2,7 @@ import { getProperties } from "../services/PropertiesServices.js";
 
 import ExchangeRateServices from "../services/ExchangeRateServices.js";
 
-import { parseToCLPCurrency, clpToUf } from "../utils/getExchangeRate.js";
+import { parseToCLPCurrency, clpToUf, validationUF } from "../utils/getExchangeRate.js";
 
 import { PropertyData, limitDataApi } from "../Data/userId.js";
 import paginationCall from "../utils/pagination.js";
@@ -130,7 +130,7 @@ export default async function renderCall() {
                       </div>
                     <div class="d-flex">
                         <h4 class="flex-fill text-center py-1">
-                            <b>UF ${clpToUf(data.price,ufValueAsNumber)}</b>
+                            <b>UF ${validationUF(data.currency.isoCode) ? data.price : clpToUf(data.price, ufValueAsNumber)}</b>
                         </h4>
                         <h4 class="flex-fill text-center py-1">
                             <b>CLP  ${parseToCLPCurrency(data?.price)}</b>
@@ -199,7 +199,7 @@ export default async function renderCall() {
             </div>
             <div class="mt-5 d-flex">
               <h4 class="flex-fill text-center py-1">
-                <b>UF ${clpToUf(data.price,ufValueAsNumber)}</b>
+                <b>UF${validationUF(data.currency.isoCode) ? data.price : clpToUf(data.price, ufValueAsNumber)}</b>
               </h4>
               <h4 class="flex-fill text-center py-1">
                 <b>CLP ${parseToCLPCurrency(data?.price)}
