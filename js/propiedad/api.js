@@ -1,173 +1,58 @@
 import renderCall from "./render.js";
+import { PropertyData, limitDataApi } from "../Data/userId.js";
+import { getRegiones,getCommune,getPropertiesForCustomUrl } from "../services/PropertiesServices.js";
 
 export default async function apiCall() {
-  localStorage.removeItem('globalResponse');
+  const { CodigoUsuarioMaestro, companyId, realtorId } = PropertyData;
+  let { data } = await getRegiones();
+
+  let response;
+  let storedGlobalQuery = localStorage.getItem('globalQuery');
+  if (storedGlobalQuery) {
+    response = JSON.parse(storedGlobalQuery);
+    console.log('api :',response)
+  }
+
+  console.log(response);
+
+  if(response != undefined){
+      // hacer consulta a la api
+      let operation = (response.operationType !== undefined && response.operationType !== null && response.operationType !== '') ? '&operationType=' + response.operationType : '';
+
+      let typeOfProperty = (response.typeOfProperty !== undefined && response.typeOfProperty !== null && response.typeOfProperty !== '') ? '&typeOfProperty=' + response.typeOfProperty : '';
+      // let nameRegion = (nameRegion !== undefined && nameRegion !== '') ? '&region=' + nameRegion : '';
+      // let commune = (commune !== undefined && commune !== '') ? '&commune=' + commune : '';
+      let bedrooms = (response.bedrooms !== undefined && response.bedrooms !== null && response.bedrooms !== '') ? '&bedrooms=' + response.bedrooms : '';
+      let bathrooms = (response.bathrooms !== undefined && response.bathrooms !== null && response.bathrooms !== '') ? '&bathrooms=' + response.bathrooms : '';
+      let parkingLots = (response.covered_parking_lots !== undefined && response.covered_parking_lots !== null && response.covered_parking_lots !== '') ? '&covered_parking_lots=' + response.covered_parking_lots : '';
+      let minPrice = (response.min_price !== undefined && response.min_price !== null && response.min_price !== '') ? '&min_price=' + response.min_price : '';
+      let maxPrice = (response.max_price !== undefined && response.max_price !== null && response.max_price !== '') ? '&max_price=' + response.max_price : '';
+
+
+      let regionData = '';
+      let nameRegion = '';
+      let commune = '';
+
+      if(response.region !== undefined && response.region !== null && response.region !== ''){
+        regionData = data.regions.find(region => region.id == response.region);
+        nameRegion = `&region=`+regionData.name;
+        if(response.commune !== undefined && response.commune !== null && response.commune !== ''){
+          let aux = await getCommune(response.region);
+          const communeData = aux.data.find(commune => commune.id == response.commune);
+          commune = `&commune=`+communeData.name;
+        }
+      }
+      
+
+
+      let urlFilters = operation+typeOfProperty+bedrooms+bathrooms+parkingLots+minPrice+maxPrice+nameRegion+commune;
+      console.log('urlFilters: ',urlFilters)
+      let response2 = await getPropertiesForCustomUrl(1,limitDataApi.limit,CodigoUsuarioMaestro,1,companyId,realtorId,urlFilters);
+      localStorage.setItem('globalResponse', JSON.stringify(response2));
+
+  }else{
+    localStorage.removeItem('globalResponse');
+  }
+
   renderCall();
 }
-/* export default async function apiCall() {
-  const response = await getProperties(0, 1, 1);
-  const data = response.data;
-
-  const response2 = await ExchangeRateServices.getExchangeRateUF();
-  const ufValue = response2?.UFs[0]?.Valor
-  const ufValueAsNumber = parseFloat(ufValue.replace(',', '.'));
-
-  const filtroSelect = document.getElementById('FilterPrice');
-  filtroSelect.addEventListener('change', handleFilterChange);
-  showItems();
-
-  function handleFilterChange() {
-    const selectedValue = filtroSelect.value;
-    console.log(selectedValue);
-    console.log(data);
-  
-    let dataOrdenada;
-  
-    if (selectedValue === 'MayorMenor') {
-      
-      dataOrdenada = data.sort((a, b) => b.price - a.price);
-    } else {
-      
-      dataOrdenada = data.sort((a, b) => a.price - b.price);
-    }
-    console.log(dataOrdenada);
-    showItems();
-  }
-
-  document.getElementById("totalItems").innerHTML = `<div>${response.meta.totalItems} Propiedades encontradas </div>`
-
-
-  function showItems() {
-    document.getElementById('container-cards').innerHTML = data.map(data => 
-      `<div class="col-sm-4 property-item">
-      <div class="property-item-card rounded ">
-          <div class="position-relative">
-              <a href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${1}"
-                  ><img
-                      class="img-fluid img-card-property"
-                      src="assets/img/properties/property-1.jpg"
-                      alt=""
-              /></a>
-              <div
-                  class="bg-dark rounded text-white position-absolute end-0 top-0 m-4 py-1 px-3"
-              >
-              ${data.operation} / ${data.types}
-              </div>
-          </div>
-          <div class="item-info">
-              <div class="p-4 pb-0 card-props">
-                  <a
-                      class="d-block h5 mb-4 text-uppercase text-center textLimitClass"
-                      href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${1}"
-                      >${data.title}</a
-                  >
-              </div>
-              <div class="p-4 pb-0 card-props">
-                  <p class="text-center">
-                      <i class="bi bi-pin-map"></i> ${data.commune != null && data.commune != undefined && data.commune != "" ? data.commune : "No registra comuna"}, ${data.region != null && data.region != undefined && data.region != "" ? data.region : "No registra Región"}, Chile
-                  </p>
-              </div>
-              <div class="">
-                  <p class="text-center">
-                    COD: ${data.id}
-                  </p>
-                </div>
-              <div class="d-flex">
-                  <h4 class="flex-fill text-center py-1">
-                      <b>UF ${clpToUf(data.price,ufValueAsNumber)}</b>
-                  </h4>
-                  <h4 class="flex-fill text-center py-1">
-                      <b>CLP  ${parseToCLPCurrency(data?.price)}</b>
-                  </h4>
-              </div>
-              <div class="d-flex w-100 border-2 bg-light">
-                  <span class="flex-fill text-center p-2">
-                      <i class="bi bi-building"></i> ${data.surface_m2 != undefined && data.surface_m2 != null && data.surface_m2 != "" ? data.surface_m2 : "0"} m<sup>2</sup>
-                  </span>
-                  <span class="flex-fill text-center py-2">
-                      <i class="fa-sharp fa-solid fa-bed"></i> ${data.bedrooms != undefined && data.bedrooms != null && data.bedrooms != "" ? data.bedrooms : "0"}
-                  </span>
-                  <span class="flex-fill text-center p-2">
-                      <i class="fa-sharp fa-solid fa-toilet"></i> ${data.bathrooms != undefined && data.bathrooms != null && data.bathrooms != "" ? data.bathrooms : "0"}
-                  </span>
-              </div>
-          </div>
-      </div>
-  </div>
-  ` ).join("");
-
-  document.getElementById('container-propiedad-list').innerHTML = data.map(data => `
-  <div class="col-sm-12 col-lg-12 property-item">
-  <div class="property-item-list rounded">
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="position-relative ">
-            <a href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${1}"
-            ><img
-              class="img-fluid img-property"
-              src="assets/img/properties/property-1.jpg"
-              alt=""
-          /></a>
-          <div
-            class="bg-dark rounded text-white position-absolute end-0 top-0 m-4 py-1 px-3"
-          >
-          ${data.operation} / ${data.types}
-          </div>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="item-info text-center">
-            <div class=" mt-3 p-4 pb-0 card-props">
-              <a
-                class="d-block h4 mb-4 text-uppercase text-center"
-                href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${1}"
-                >${data.title}</a
-              >
-          
-            </div>
-            <div class=" p-4 pb-0">
-              <p class="text-center">
-                <i class="bi bi-pin-map"></i> ${data.commune != null && data.commune != undefined && data.commune != "" ? data.commune : "No registra comuna"}, ${data.region != null && data.region != undefined && data.region != "" ? data.region : "No registra Región"}, Chile
-              </p>
-            </div>
-            <div class="">
-              <p class="text-center">
-                COD: ${data.id}
-              </p>
-            </div>
-            <div class="mt-5 d-flex">
-              <h4 class="flex-fill text-center py-1">
-                <b>UF ${clpToUf(data.price,ufValueAsNumber)}</b>
-              </h4>
-              <h4 class="flex-fill text-center py-1">
-                <b>CLP ${parseToCLPCurrency(data?.price)}
-                </b>
-              </h4>
-            </div>
-            <div class="mt-3 d-flex w-100 border-2 bg-light">
-              <span class="flex-fill text-center p-2">
-                <i class="bi bi-building"></i> ${data.surface_m2 != undefined && data.surface_m2 != null && data.surface_m2 != "" ? data.surface_m2 : "0"} m<sup>2</sup>
-              </span>
-              <span class="flex-fill text-center py-2">
-                <i class="fa-sharp fa-solid fa-bed"></i> ${data.bedrooms != undefined && data.bedrooms != null && data.bedrooms != "" ? data.bedrooms : "0"}
-              </span>
-              <span class="flex-fill text-center p-2">
-                <i class="fa-sharp fa-solid fa-toilet"></i> ${data.bathrooms != undefined && data.bathrooms != null && data.bathrooms != "" ? data.bathrooms : "0"}
-              </span>                 
-            </div>
-          </div>
-        </div>
-      </div>
-
-  </div>
-  
-</div>
-  `).join("");
-  }
-
-  
-     
-
-
-}
- */
