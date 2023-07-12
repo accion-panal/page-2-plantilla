@@ -1,6 +1,7 @@
 import { AboutInformation } from "./userId.js";
 
 const loadInformation = () => {
+localStorage.removeItem('globalQuery');
 /* Parrafos del head de quienes somos*/
 let Text1 = document.getElementById('Text1');
 if (Text1 !==null){
