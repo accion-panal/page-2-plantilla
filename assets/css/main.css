@@ -1644,3 +1644,9 @@ footer .container .footer-nav-links ul li {
   display: block !important;
   height: 6.25rem;
 }
+
+
+.initialMap {
+  height: 0 !important;
+  overflow: hidden;
+}

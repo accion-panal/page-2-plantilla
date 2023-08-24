@@ -283,7 +283,7 @@
 							>
 							<ul class="nav nav-pills " id="pills-tab" role="tablist">
 								<li class="nav-item" role="presentation">
-								 <!--  <button type="button" class="btn btn-light btn-list text-dark active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+								  <button type="button" class="btn btn-light btn-list text-dark active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
 									<span>
 										<i class="bi bi-list-ul">
 										 	
@@ -291,25 +291,25 @@
 									</span>
 									</button>
 									
-								 -->
-								 <a class="btn btn-light btn-list text-dark active" href="properties.html" ><i class="bi bi-list-ul"></i></a>
+								
+								 <!-- <a class="btn btn-light btn-list text-dark active" href="properties.html" ><i class="bi bi-list-ul"></i></a> -->
 								</li>
 								<li class="nav-item" role="presentation">
-									<!-- <button type="button" class="btn btn-light btn-grid" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
+									<button type="button" class="btn btn-light btn-grid" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
 										<span>
 											<i class="bi bi-grid-fill"></i>
 										</span>
-									</button> -->
-									<a class="btn btn-light btn-grid" href="properties_list.html" ><i class="bi bi-grid-fill"></i></a>
+									</button>
+									<!-- <a class="btn btn-light btn-grid" href="properties_list.html" ><i class="bi bi-grid-fill"></i></a> -->
 
 								</li>
 								<li class="nav-item" role="presentation">
-									<!-- <button type="button" class="btn btn-light btn-map" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" >
+									<button type="button" class="btn btn-light btn-map" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" >
 										<span>
 											<i class="bi bi-pin-map"></i>
 										</span>
-									</button> -->
-								 <a class="btn btn-light btn-map" href="properties_map.html" ><i class="bi bi-pin-map"></i></a>
+									</button>
+								 <!-- <a class="btn btn-light btn-map" href="properties_map.html" ><i class="bi bi-pin-map"></i></a> -->
 								</li>
 							</ul>
 							</div>
@@ -331,7 +331,7 @@
 								<p class="text-nowrap mt-3 p-3">Cant. Propiedades:</p>
 								<select id="FilterLimit" class="form-select border">
 									<option value="3">3</option>
-									<option value="6" selected>6</option>
+									<option value="6">6</option>
 									<option value="9">9</option>
 								</select>
 							</div>
@@ -339,7 +339,8 @@
 						<div class="tab-content" id="pills-tabContent">
 							<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">  
 								<div class="row g-3" id="container-propiedad-list" style="justify-content: center;">	
-									<div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>
+									LISTA
+									<!-- <div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div> -->
 									<!-- <div class="col-sm-12 col-lg-12 property-item">
 										<div class="property-item-list rounded">
 												<div class="row">
@@ -405,7 +406,8 @@
 								
 							</div>
 							<div class="tab-pane fade " id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-								<div class="row g-3" id="container-propiedad">
+								<div class="row g-3" id="container-propiedad" style="justify-content: center;">
+									GRID
 									<!-- item 1 -->
 									<!-- <div class="col-sm-4 property-item">
 										<div class="property-item-card rounded ">
@@ -460,9 +462,11 @@
 									<!-- Fin item 1 -->
 								</div>
 							</div>
-							<!-- <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-								<div id="map"></div> 
-							</div> -->
+							<div class="tab-pane fade initialMap active" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+								<div class="row g-3" id="div-map-section" style="justify-content: center;">
+									<div id="map"></div> 
+								</div>
+							</div>
 						</div>
 
 						<div id="pagination-col">
@@ -633,16 +637,22 @@
 		<!-- Template Main JS File -->
 		<script src="assets/js/main.js"></script>
 		<script src="assets/js/owlCarousel.js"></script>
-		<!-- <script src="assets/js/viewProperties.js"></script> -->
+
+		<!-- Custom -->
+		<script src="js/tabs.js"></script>
+
+		<!-- Axios -->
 		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-		<script type="module" src="js/index.js"></script>
-		<script type="module" src="js/utils/getExchangeRate.js"></script>
-    
-		<script type="module" src="js/utils/getSelects.js"></script>
-<!-- 		<script type="module" src="js/Data/ContactInfo.js"></script> -->
-		<script type="module" src="js/utils/pagination.js"></script>
+		<!-- Pages -->
+		<script type="module" src="js/pages/index.js"></script>
+
+		<!-- Utils -->
 		<script type="module" src="js/utils/filterOnSearch.js"></script>
+		<script type="module" src="js/utils/getSelects.js"></script>
+		<script type="module" src="js/utils/limitProp.js"></script>
+		
+		<!-- Data -->
 		<script type="module" src="js/Data/Footer.js"></script>  
 	</body>
 </html>
