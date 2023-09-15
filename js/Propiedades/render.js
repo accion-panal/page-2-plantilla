@@ -275,7 +275,7 @@ export default async function renderCall(QueryParams = undefined, NumberPaginati
                 <div class="item-info text-center">
                   <div class=" mt-3 p-4 pb-0 card-props">
                     <a class="d-block h4 mb-4 text-uppercase text-center" href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${1}" target="_blank">
-                      ${data.title}
+                      ${data?.title || "No cuenta con titulo"} 
                     </a >
                   </div>
                   <p class="text-center">Cod. Prop: ${data.id}</p>
