@@ -70,6 +70,18 @@ function setContainerLoading(isLoading){
   }
 }
 
+function validateImage(image){
+  if(image){
+    if(image.endsWith('.jpg') || image.endsWith('.png') || image.endsWith('.jpeg')){
+      return `<img src=${image} alt="Image" class="img-fluid">`;
+    }
+    return `<img src='https://res.cloudinary.com/dbrhjc4o5/image/upload/v1681933697/unne-media/errors/not-found-img_pp5xj7.jpg' alt="" class="img-fluid">`;
+  }
+  else{
+    return `<img src='https://res.cloudinary.com/dbrhjc4o5/image/upload/v1681933697/unne-media/errors/not-found-img_pp5xj7.jpg' alt="" class="img-fluid">`;
+  }
+}
+
 
 
 export default async function renderCall(QueryParams = undefined, NumberPagination = undefined, filtersUrlString = undefined) {
@@ -193,7 +205,7 @@ export default async function renderCall(QueryParams = undefined, NumberPaginati
           <div class="property-item-card rounded ">
             <div class="position-relative">
               <a href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${1}" target="_blank">
-                ${data.image.endsWith('.jpg') ? `<img src=${data.image} alt="Image" class="img-fluid img-card-property">`: data.image.endsWith('.png') ? `<img src=${data.image} alt="Image" class="img-fluid img-card-property">` : data.image.endsWith('.jpeg') ? `<img src=${data.image} alt="Image" class="img-fluid img-card-property">`: `<img src='https://res.cloudinary.com/dbrhjc4o5/image/upload/v1681933697/unne-media/errors/not-found-img_pp5xj7.jpg' alt="Image" class="img-fluid img-card-property">`}
+                ${validateImage(data.image)}
               </a>
               <div class="bg-dark rounded text-white position-absolute end-0 top-0 m-4 py-1 px-3">
                 ${data.operation} / ${data.types}
@@ -252,7 +264,7 @@ export default async function renderCall(QueryParams = undefined, NumberPaginati
               <div class="col-lg-6">
                 <div class="position-relative ">
                   <a href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${1}" target="_blank">
-                    ${data.image.endsWith('.jpg') ? `<img src=${data.image} alt="Image" class="img-fluid img-property">`: data.image.endsWith('.png') ? `<img src=${data.image} alt="Image" class="img-fluid img-property">` : data.image.endsWith('.jpeg') ? `<img src=${data.image} alt="Image" class="img-fluid img-property">`: `<img src='https://res.cloudinary.com/dbrhjc4o5/image/upload/v1681933697/unne-media/errors/not-found-img_pp5xj7.jpg' alt="Image" class="img-fluid img-property">`}
+                    ${validateImage(data.image)}
                   </a>
                   <div class="bg-dark rounded text-white position-absolute end-0 top-0 m-4 py-1 px-3" >
                     ${data.operation} / ${data.types}
