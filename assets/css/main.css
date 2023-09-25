@@ -1521,8 +1521,12 @@ footer .container .footer-nav-links ul li {
   color: #cfcfcf !important;
 }
 
+.footer-nav-menu  > li > a{
+  color: #f9f9f9 !important;
+}
+
 .footer-nav-menu  > li > a:hover{
-  color: #ffffff !important;
+  color: #acacac !important;
 }
 
 /*--------------------------------------------------------------
@@ -1649,4 +1653,12 @@ footer .container .footer-nav-links ul li {
 .initialMap {
   height: 0 !important;
   overflow: hidden;
+}
+.dropdown-item.active, .dropdown-item:active{
+  background-color: #b6b6b6;
+  color: #f1f1f1;
+}
+
+.navbar .dropdown ul a:hover{
+  color: #010101 !important;
 }
